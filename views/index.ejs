@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Issue Tracker</title>
+   <link rel="stylesheet" href="./style.css">
+  </head>
+  <body >
+  
+
+    <h1>Issue Tracker <hr></h1><br>
+
+  
+
+    <form action="/projects/new" method="GET" id="index-form-btn" >
+  
+        <button class="btn">
+          <div id="createprojectbtn">
+            <p style="font-size: 1.2rem; font-weight: bold;">Create Project </p>
+            <img src="https://cdn-icons-png.flaticon.com/512/4315/4315609.png" alt="plus" height="30px" width="30px" style="padding-top: 14px; padding-left: 10px;">
+      </div>
+         
+        </button>
+     
+     
+    </form><br><br>
+    <h2 style="color: brown; text-decoration: underline;">List Of Projects :</h2>
+
+    <ol type="i" id="project-list">
+      
+      <% projects.forEach((project) => { %>
+        <li id="div" ><a href="/projects/<%= project._id %>" id="proname">
+          
+          <%= project.name %></a>
+          <form action="/projects/<%= project._id %>?_method=DELETE" method="POST">
+            <!-- <input type="submit" value="Delete"> -->
+          <button id="delete-button">
+            <img src="https://cdn-icons-png.flaticon.com/512/9790/9790368.png" alt="Delete" height="20px" width="20px">
+          </button>
+          </form>
+        </li>
+      <% }); %>
+  
+    </ol>
+    <footer>
+      <p>&copy; This Project is created By <b> Soumitra Ghosh </b>. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

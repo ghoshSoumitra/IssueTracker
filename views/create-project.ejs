@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create Project - Issue Tracker</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+      body{
+        background-image: url('https://s42509.pcdn.co/wp-content/uploads/2021/09/shutterstock_533855503-scaled.jpg')
+      }
+      #main{
+        display: flex;
+        flex-direction: column;
+         height: 72vh;width: 50%;
+          background-color: #f2bac8;
+           margin-left: 27%;
+           border-radius: 20px; 
+           box-shadow: 5px 5px 9px  rgb(77, 68, 8);
+      }
+      h1{
+        text-align: center;
+         color: blue;
+         text-shadow:  5px 5px 9px  rgb(77, 68, 8);
+         
+      }
+      #form{
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+      }
+      .name{
+        margin-bottom: 1vh;
+         font-size: 1.2rem;
+         font-weight: bold;
+      }
+      #createbtn{
+        height: 32px;
+        width: 10vw; 
+        margin-left: 0vw;
+        margin-top: 4vh;
+        /* box-shadow: 10px 10px; */
+        box-shadow: 5px 5px 9px  rgb(77, 68, 8);
+        font-size: 1.2rem;
+        font-weight: bold;
+        background-color: #cda061;
+        color: white;
+    text-shadow: 5px 5px 5px rgb(77,68,8);
+    border-radius: 11px;
+      }
+      #description{
+        border: 1px solid #f2bac8;
+         border-radius: 10px;
+        height: 15vh;
+        width: 20vw;
+        margin-bottom: 1vh;
+        box-shadow: 5px 5px 5px rgb(77, 68, 8);
+      }
+      #author{
+        height: 5vh;
+        width: 20vw;
+        border: 1px solid #f2bac8;
+         border-radius: 10px;
+         box-shadow: 5px 5px 5px rgb(77, 68, 8);
+      }
+      #name{
+        height: 5vh;
+        width: 20vw;
+        margin-bottom: 1vh;
+         border: 1px solid #f2bac8; 
+         border-radius: 10px;
+         box-shadow: 5px 5px 5px rgb(77, 68, 8);
+      }
+    </style>
+  </head>
+  <body >
+    <a href="/" class="home-button"> <img src="https://cdn-icons-png.flaticon.com/512/5974/5974636.png" alt="home" height="50px" width="50px"></a>
+
+    <div id="main">
+
+
+    <h1 >Create Project <hr></h1>
+
+    <form action="/projects" method="POST" id="form">
+      <label for="name" class="name">Project Name:</label>
+      <input type="text" id="name" name="name" required >
+
+      <label for="description" class="name">Description:</label>
+      <textarea id="description" name="description" required ></textarea>
+
+      <label for="author" class="name">Author:</label>
+      <input type="text" id="author" name="author" required ><br><br>
+
+      <button id="createbtn">Create</button>
+    </form>
+  </div>
+  </body>
+</html>

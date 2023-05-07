@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= project.name %> - Issue Tracker</title>
+    <style>
+      body{
+        background-image: url('https://s42509.pcdn.co/wp-content/uploads/2021/09/shutterstock_533855503-scaled.jpg')
+      }
+      h1{
+        text-align: center;
+        color: blue;
+      }
+      #project-details{
+        height: 22vh;
+        width: 99%;
+        background-color: #ffe4c478;;
+        padding-left: 10px;
+        border-radius: 10px 10px 0px 0px;
+      }
+      
+      #btnimg{
+        display: flex;
+        font-size: 1.2rem;
+      }
+      #btn{
+        margin-left: 45%;
+        box-shadow: 5px 5px 9px  rgb(77, 68, 8);
+        font-weight: bold;
+        background-color: #cda061;
+        color: white;
+    text-shadow: 5px 5px 5px rgb(77,68,8);
+    font-size: 1.2rem;
+    border-radius: 11px;
+    cursor: pointer;
+ 
+      }
+      li{
+        height: auto;
+        width: 99%;
+        background-color:#95240c7d;
+        font-size: 1.2rem;
+        padding-left: 10px;
+        border-radius: 10px;
+       
+      }
+      .span{
+        font-weight: bold;
+      }
+      #search-btn{
+        box-shadow: 5px 5px 9px  rgb(77, 68, 8);
+        font-weight: bold;
+        background-color: #cda061;
+        color: white;
+    text-shadow: 5px 5px 5px rgb(77,68,8);
+    font-size: 1.2rem;
+    border-radius: 11px;
+    cursor: pointer;
+      }
+      #Search{
+        margin-left: 80%;
+        height: 3vh;
+        border: 1px solid #f2bac8; 
+         border-radius: 10px;
+         box-shadow: 5px 5px 5px rgb(77, 68, 8);
+      }
+  
+     
+    </style>
+  </head>
+  <body>
+    <a href="/" class="home-button"> <img src="https://cdn-icons-png.flaticon.com/512/5974/5974636.png" alt="home" height="50px" width="50px"></a>
+
+
+    <h1>Issues <hr></h1>
+    
+    <div id="project-details">
+      <h2>
+        Project Details:
+      </h2>
+      <h3> Project name: <%= project.name %></h3>
+
+      <h3>Project description:<%= project.description %></h3>
+  
+      <h3> Author name: <%= project.author %></h3>
+
+    </div> <br><br>
+  
+
+    <h2>Issues List: <hr></h2>
+    <form action="/projects/<%= project._id %>/issues/new" method="GET">
+      <button id="btn">
+        <div id="btnimg"> Create Issue <img src="https://cdn-icons-png.flaticon.com/512/399/399271.png" height="25px" width="25px" style="padding-left: 10px;"> </div></button>
+    </form>
+    
+
+      <!-- <button id="sort">Search</button> -->
+      <input type="text" id="Search"  placeholder="Search for anything.." title="Type in a name">
+      <!-- <button onclick="handleSort()" id="search-btn"> Search</button> -->
+    <!-- </form> -->
+      <section id="myUL">
+    <% if (issues.length === 0) { %>
+      <p>No issues found</p>
+    <% } else { %>
+      <ol type="1">
+        <% issues.forEach((issue) => { %>
+          <li>
+            <p>
+              <span class="span">Issue name:</span>
+              <span style="color: aliceblue;"><%= issue.title %></span><br>
+              <span class="span">Details:</span>
+              <span style="color: aliceblue;"><%= issue.description %></span><br>
+              <span class="span">Posted by:</span>
+              <span style="color: aliceblue;"><%= issue.author %></span><br>
+              <span class="span">Labels:</span>
+              <span style="color: aliceblue;"><%= issue.labels %></span>
+
+            </p>
+          </li>
+        <% }); %>
+      </ol>
+    <% } %>
+    
+  </section>
+   
+
+    <script>
+//       const sortButton = document.getElementById('Search');
+// sortButton.addEventListener('click', handleSort);
+
+async function handleSort() {
+  var input, filter, ul, li, p, i, j, txtValue;
+  input = document.getElementById("Search");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    p = li[i].getElementsByTagName("span");
+    for (j = 0; j < p.length; j++) {
+      txtValue = p[j].textContent || p[j].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+        break;
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+    if (!filter) {
+    for (i = 0; i < li.length; i++) {
+      li[i].style.display = "";
+    }
+  }
+  }
+}
+const input = document.getElementById('Search');
+  input.addEventListener('keyup', handleSort);
+    </script>
+  </body>
+</html>

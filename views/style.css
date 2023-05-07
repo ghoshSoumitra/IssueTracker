@@ -1,0 +1,67 @@
+body{
+    /* background-color: aquamarine; */
+    background-image: url('https://s42509.pcdn.co/wp-content/uploads/2021/09/shutterstock_533855503-scaled.jpg');
+}
+h1{
+   text-align: center;
+    color: blue;
+    /* text-shadow: 5px 5px 5px rgb(77,68,8); */
+}
+.btn{
+    text-align: center;
+    border-radius: 10px;
+    /* box-shadow: aquamarine; */
+    box-shadow: 5px 6px 10px rgb(77,68,8);
+    background-color: #bfa261;
+    color: white;
+    text-shadow: 5px 5px 5px rgb(77,68,8);
+    cursor: pointer;
+}
+#index-form-btn{
+    text-align: center; 
+    cursor: pointer;
+}
+#createprojectbtn{
+    display: flex;
+}
+#project-list{
+    font-size: 2rem;
+  
+    
+}
+#create{
+    background-image: url('https://wallpaperaccess.com/full/2593673.jpg');
+}
+#delete-button{
+    /* margin-left: 2vw; */
+    /* margin-bottom: 0.5vh; */
+    cursor: pointer;
+}
+#div{
+    display: flex;
+    height: 7vh;
+    width: 20vw;
+    text-align: center;
+    border-radius: 10px;
+    /* box-shadow: aquamarine; */
+    box-shadow: 5px 6px 10px rgb(77,68,8);
+    background-color: #5a99d0a6;;
+    color: white;
+    text-shadow: 5px 5px 5px rgb(77,68,8);
+   margin-bottom: 2vh;
+   justify-content: space-between;
+    
+}
+#proname{
+    padding-left: 2vh;
+}
+footer {
+    background-color: #f2f2f2;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 98%;
+    text-align: center;
+    font-size: 14px;
+  }
+  
